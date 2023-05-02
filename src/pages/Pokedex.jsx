@@ -159,6 +159,7 @@ const Pokedex = () => {
                   className="py-3"
                   onChange={(e) => setQuantity(e.target.value)}
                 >
+                  <option value=""> -</option>
                   <option value="4">4</option>
                   <option value="8">8</option>
                   <option value="12">12</option>
