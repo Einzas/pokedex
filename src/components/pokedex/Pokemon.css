@@ -1,0 +1,12 @@
+.bg-normal {
+    background: linear-gradient(181.51deg, #735259 -6.44%, #BC6B7C 121.95%, #7C3F4C 186.11%);
+}
+.text-normal
+{
+    color: #735259;
+}
+
+.border-normal
+{
+    border: 1px solid #7C3F4C;
+}
