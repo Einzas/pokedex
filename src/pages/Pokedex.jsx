@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../components/pokedex/Header";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -17,9 +17,12 @@ const Pokedex = () => {
 
   const nameTrainer = useSelector((store) => store.nameTrainer);
 
+  const input = useRef(null)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setPokemonName(e.target.pokemonName.value);
+
   };
 
   const pokemonByName = pokemons.filter((pokemon) =>
@@ -116,6 +119,11 @@ const Pokedex = () => {
     }
   }, [currentType]);
 
+  useEffect(() => {
+    setPokemonName("");
+    input.current.value = ""
+  }, [currentType])
+
   return (
     <section className="min-h-screen">
       <Header />
@@ -135,6 +143,7 @@ const Pokedex = () => {
                   id="pokemonName"
                   type="text"
                   placeholder="Search your pokemon"
+                  ref={input}
                 />
                 <button className="bg-red-500 text-white px-3 sm:px-10 py-2">
                   Search
